@@ -29,6 +29,13 @@
 #include "config.h"
 #endif
 
+#if defined(_MSC_VER) || defined(__MINGW32__)
+// According to Microsoft, one must set _USE_MATH_DEFINES in order to get M_PI
+// from the Visual C++ cmath / math.h headers:
+// https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=vs-2019
+#define _USE_MATH_DEFINES
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
